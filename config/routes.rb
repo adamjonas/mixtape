@@ -1,4 +1,6 @@
 Mixtapeapp::Application.routes.draw do
+  resources :mixtapes
+
   resources :artists
 
   resources :songs
