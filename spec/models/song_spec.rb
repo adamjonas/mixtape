@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Song do
+  let(:song){Song.create(:name => "Thriller")}
+
   context '.add_genre' do
-    let(:song){Song.create(:name => "Thriller")}
     let(:genre){Genre.create(:name => "Pop")}
 
     it "should add the genre" do
@@ -33,6 +34,15 @@ describe Song do
       song.add_genre("Trance")
 
       song.genres.count.should == 2
+    end
+  end
+
+  context '.artist_name=' do
+    it "should assign the artist via the name" do
+      song.artist_name = "Michael Jackson"
+
+      song.artist.should be_a(Artist)
+      song.artist_name.should == "Michael Jackson"
     end
   end
 end
