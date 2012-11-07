@@ -40,7 +40,6 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    #{:name => "Thriller", :artist => {:name => "Michael Jackson"}}}
     @song = Song.new(params[:song])
 
     respond_to do |format|
