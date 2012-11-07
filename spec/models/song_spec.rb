@@ -11,7 +11,6 @@ describe Song do
         song.genres << genre
         song.save
 
-
         song.genre_names.should be_an_instance_of(Array)
         song.genre_names.should include("Pop")
       end

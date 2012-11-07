@@ -25,6 +25,9 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'terminal-notifier-guard'
 end
 
 # To use ActiveModel has_secure_password
