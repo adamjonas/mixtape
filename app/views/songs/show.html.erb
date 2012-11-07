@@ -12,7 +12,7 @@
 
 <p>
   <b>Genres:</b>
-  <%= @song.genre_names.to_sentence %>
+  <%= @song.genre_names.try(:to_sentence) %>
 </p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |

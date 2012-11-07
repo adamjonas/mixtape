@@ -1,50 +1,21 @@
+<!-- Lowest Level -->
+<!-- <form action="/songs" id="new_song" class="new_song">
+  <input type="text" id="song_name" name="song[name]" value="<%#= @song.name %>">
+
+  <input type="text" id="song_artist_name" name="song[artist_name]" value="<%#= @song.artist_name %>">
+
+  <input type="submit" value="Create Song" id="create_song">
+<form> -->
+
+<%#= form_tag(songs_path, :id => "new_song") do %>
+  <%#= text_field_tag "song[name]", @song.name, :id => "song_name" %>
+  <%#= text_field_tag "song[artist_name]", @song.artist_name, :id => "song_artist_name" %>
+
+  <%#= submit_tag "Create Song", :id => "create_song" %>
+<%# end %>
+
 <%= form_for(@song) do |f| %>
-  <% if @song.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
-
-      <ul>
-      <% @song.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :artist_name %><br />
-    <%= f.text_field :artist_name %>
-  </div>
-  <div class="field">
-    <%= f.label :genre_names %><br />
-    <%= f.text_field :genre_names, :name => "song[genre_names][]" %>
-  </div>
-
-  <%
-  # Loop through all genres
-  # for each genre, write out a checkbox with the genres name
-  %>
-
-  <% Genre.all.each do |genre| %>
-    <%= f.label "genre_#{genre.name}", genre.name %>
-    <%= check_box_tag "song[genre_names][]",
-                  genre.name,
-                  false,
-                  {:id => "song_genre_#{genre.name}"}
-    %>
-  <% end %>
-
-
-
-
-
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_field :name %>
+  <%= f.text_field :artist_name %>
+  <%= f.submit %>
 <% end %>
