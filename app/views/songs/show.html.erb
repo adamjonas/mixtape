@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <b>Album Name:</b>
+  <%= @song.album_name %>
+</p>
+
+<p>
   <b>Genres:</b>
   <%= @song.genre_names.try(:to_sentence) %>
 </p>

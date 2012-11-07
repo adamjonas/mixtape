@@ -13,6 +13,7 @@ describe "Songs" do
 
       page.should have_selector("input#song_name")
       page.should have_selector("input#song_artist_name")
+      page.should have_selector("input#song_album_name")
     end
 
     it "submits and creates the song" do
@@ -20,11 +21,13 @@ describe "Songs" do
 
       fill_in "song_name", :with => "Thriller"
       fill_in "song_artist_name", :with => "Michael Jackson"
+      fill_in "song_album_name", :with => "Off the Wall"
 
       click_button("Song")
 
       page.should have_content("Thriller")
       page.should have_content("Michael Jackson")
+      page.should have_content("Off the Wall")
     end
 
   end

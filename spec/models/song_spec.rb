@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Song do
-  let(:song){Song.new(:name => "Thriller")}
+  let(:song){Song.new(:name => "Thriller")}  
 
   context 'with genres' do
     let(:genre){Genre.create(:name => "Pop")}
@@ -41,6 +41,28 @@ describe Song do
         song.save
 
         song.genre_names.count.should == 1
+      end
+    end
+  end
+
+    context 'with albums' do
+      let(:album){Album.create(:name => "Off the Wall")}
+
+      context '.album_name' do
+      it "should return the album name" 
+      # do
+      #   song.album << album
+      #   song.save
+
+      #   song.album_name.should be_an_instance_of(String)
+      #   song.album_name.should include("Off the Wall")
+      # end
+
+      it "should accept an album name and add that album" do
+        song.album_name = "Off the Wall"
+        song.save
+
+        song.album_name.should include("Off the Wall")
       end
 
     end

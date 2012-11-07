@@ -34,5 +34,11 @@ describe SongsController do
       assigns(:song).genre_names.should include("Pop")
     end
 
+    it "should create a song with an album" do
+      post :create, {:song => {:name => "Thriller", :album_name => "Off the Wall"}}
+
+      assigns(:song).album_name.should include("Off the Wall")
+    end
+
   end
 end

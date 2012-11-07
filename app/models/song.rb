@@ -1,6 +1,7 @@
 class Song < ActiveRecord::Base
-  attr_accessible :name, :artist_name, :genre_names
+  attr_accessible :name, :artist_name, :genre_names, :album_name
   belongs_to :artist
+  belongs_to :album
 
 
   has_many :mixtape_songs
@@ -27,6 +28,14 @@ class Song < ActiveRecord::Base
 
   def artist_name=(string)
     self.artist = Artist.find_or_create_by_name(string)
+  end
+
+  def album_name
+    self.album.name if self.album
+  end
+
+  def album_name=(string)
+    self.album = Album.find_or_create_by_name(string)
   end
 
   private
